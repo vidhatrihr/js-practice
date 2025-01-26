@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Constructor</h1>
+    <script>
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.salary = 1000;
+        this.place = 'India';
+      }
+      var vidu = new Person('vidu', 20);
+      var rahul = new Person('rahul', 20);
+      console.log({ vidu, rahul });
+      // vidu.place = 'hbh';
+      vidu.dob = '2004';
+      console.log(vidu.name, vidu.salary, vidu.place, vidu.dob);
+      console.log(rahul.name, rahul.salary, rahul.place, rahul.dob);
+    </script>
+
+    <script>
+      function Car(model, color) {
+        this.model = model;
+        this.color = color;
+      }
+      var xylo1 = new Car('xylo 2020', 'white');
+      var xylo2 = new Car('xylo 2022', 'black');
+      var ertiga1 = new Car('ertiga 2020', 'white');
+      var ertiga2 = new Car('ertiga 2022', 'orange');
+      console.log(xylo1, xylo2, ertiga1, ertiga2);
+    </script>
+
+    <script>
+      var xylo1 = {
+        name: 'xylo 2020',
+        color: 'white',
+      };
+      var xylo2 = {
+        name: 'xylo 2024',
+        color: 'white',
+      };
+      var ertiga1 = {
+        name: 'ertiga 2022',
+        color: 'white',
+      };
+      var ertiga2 = {
+        name: 'ertiga 2023',
+        color: 'black',
+      };
+      console.log(ertiga1, ertiga2, xylo1, xylo2);
+    </script>
+  </body>
+</html>

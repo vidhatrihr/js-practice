@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h3 id="add"></h3>
+    </div>
+    <div>
+      <h3 id="minus"></h3>
+    </div>
+    <div>
+      <h3 id="multiply"></h3>
+    </div>
+    <div>
+      <h3 id="divide"></h3>
+    </div>
+    <script>
+      var a = 2;
+      var b = 5;
+      function add(a, b) {
+        return a + b;
+      }
+      function minus(a, b) {
+        return a - b;
+      }
+      function multiply(a, b) {
+        return a * b;
+      }
+      function divide(a, b) {
+        return a / b;
+      }
+      document.querySelector('#add').innerHTML =
+        'Add ' + a + ' and ' + b + ' to obtain ' + add(a, b);
+
+      document.querySelector('#minus').innerHTML =
+        'Minus ' + a + ' and ' + b + ' to obtain ' + minus(a, b);
+
+      document.querySelector('#multiply').innerHTML =
+        'Multiply ' + a + ' and ' + b + ' to obtain ' + multiply(a, b);
+
+      document.querySelector('#divide').innerHTML =
+        'Divide ' + a + ' and ' + b + ' to obtain ' + divide(a, b);
+    </script>
+  </body>
+</html>

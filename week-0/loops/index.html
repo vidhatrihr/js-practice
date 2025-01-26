@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      for (i = 10; i <= 1000; i += 1) {
+        var sqrt = i ** 0.5;
+        if (Number.isInteger(sqrt)) {
+          if (i % 2 == 0) {
+            console.log(`${i} is a even perfect square`);
+          } else {
+            console.log(`${i} is a odd perfect square`);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

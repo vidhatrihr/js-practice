@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <p id="slice"></p>
+  <body>
+    <script>
+      var text = 'Hello Rahul';
+      var char = text.charCodeAt(1);
+      console.log(text, char);
+    </script>
+
+    <script>
+      let name = 'rahul';
+      let letter = name.at(3);
+      console.log(name, letter);
+    </script>
+
+    <script>
+      var text = 'I am here';
+      var char = text[0];
+      console.log(text, char);
+    </script>
+
+    <script>
+      var fruits = 'apple, banana, kiwi';
+      var slice_down = fruits.slice(7);
+      document.querySelector('#slice').innerHTML =
+        slice_down + ' Extract a part of a string from position';
+      console.log(slice_down);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box" style="background-color: black">Hello</div>
+    <script>
+      const colors = {
+        color1: 'red',
+        color2: 'green',
+        color3: 'yellow',
+      };
+      let i = 1;
+      let color = null;
+      setInterval(() => {
+        if (i > 6) {
+          return;
+        }
+        if (i % 2 != 0) {
+          color = colors.color1;
+        } else if (i % 4 == 0) {
+          color = colors.color2;
+        } else {
+          color = colors.color3;
+        }
+        i++;
+        document.getElementById('box').style.backgroundColor = color;
+      }, 1000);
+    </script>
+  </body>
+</html>

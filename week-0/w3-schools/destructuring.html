@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <script>
+      const person = {
+        fname: 'vidu',
+        lname: 'hr',
+        age: 20,
+      };
+      let { fname, lname, country = 'India' } = person;
+      document.getElementById('demo').innerHTML = fname + ' ' + lname + ' ' + country;
+    </script>
+
+    <div id="fruits"></div>
+    <script>
+      const fruits = ['bananas', 'apples', 'mangoes', 'grapes', 'melon'];
+      // does not disturb the above object
+      let [fruit1, , , fruit2] = fruits;
+      document.getElementById(
+        'fruits'
+      ).innerHTML = `The fruit ${fruit1} is in the list of fruits ${fruits}`;
+    </script>
+
+    <p id="numbers"></p>
+    <script>
+      const numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130];
+      const [a, b, ...rest] = numbers;
+
+      document.getElementById('numbers').innerHTML = numbers;
+    </script>
+  </body>
+</html>

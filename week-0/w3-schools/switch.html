@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <script>
+      switch (new Date().getDay()) {
+        case 3:
+          text = 'Today is wednesday and first january.';
+          break;
+        default:
+          text = 'Looking forward for the next weekend';
+      }
+
+      document.getElementById('demo').innerHTML = text;
+    </script>
+  </body>
+</html>

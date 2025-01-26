@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Car(brand, model, year, mileage) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.mileage = mileage;
+
+        this.carAge = function carAge() {
+          var current_year = new Date().getFullYear();
+          var age = current_year - this.year;
+          return age;
+        };
+        this.drive = function drive(km) {
+          this.mileage += km;
+        };
+        this.getDetails = function getDetails() {
+          return `This is a ${this.brand} ${this.model}, ${this.year} model, with ${this.mileage} km driven.`;
+        };
+        this.needsService = function needsService() {
+          if (this.mileage >= 1200) {
+            return `${this.model} needs service`;
+          } else {
+            return `${this.model} needs NO service`;
+          }
+        };
+      }
+      var xylo = new Car('mahindra', 'xylo', 2018, 1000);
+      console.log(xylo);
+      console.log(xylo.carAge());
+      console.log(xylo.needsService());
+      xylo.drive(500);
+      console.log(xylo.mileage);
+      console.log(xylo.getDetails());
+      console.log(xylo.needsService());
+    </script>
+
+    <!-- <script>
+      function Student(first_name, last_name, age, place) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.age = age;
+        this.place = place;
+        this.fullName = function fullName() {
+          return `${this.first_name} ${this.last_name}`;
+        };
+        this.myIntro = function myIntro() {
+          return `I am ${this.fullName()}, ${this.age} years old, from ${this.place}`;
+        };
+        this.canVote = function canVote() {
+          if (this.age >= 18) {
+            return true;
+          } else {
+            return false;
+          }
+        };
+        this.changePlace = function changePlace(place) {
+          this.place = place.toUpperCase();
+        };
+      }
+
+      var student_1 = new Student('vishnu', 'hr', 10, 'hbh');
+      var student_2 = new Student('rahul', 'maurya', 21, 'bhadohi');
+      var student_3 = new Student('vidu', 'hr', 20, 'hbh');
+      console.log(student_1);
+      console.log(student_2);
+      console.log(student_2.fullName());
+      console.log(student_2.myIntro());
+      console.log(student_1.canVote());
+      student_2.changePlace('blr');
+      console.log(student_2.myIntro());
+    </script> -->
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var book = {
+        title: 'message for youth',
+        author: 'Swami Vivekananda',
+        year: 1930,
+      };
+      function book_info(book) {
+        console.log(Object.values(book));
+        console.log(Object.entries(book));
+        console.log(JSON.stringify(book));
+        // console.log({book.title, book.author});
+      }
+
+      book_info(book);
+    </script>
+  </body>
+</html>

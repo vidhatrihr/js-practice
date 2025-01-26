@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car</title>
+  </head>
+  <body>
+    <script>
+      class Car {
+        constructor(brand, model, year) {
+          this.brand = brand;
+          this.model = model;
+          this.year = year;
+          this.speed = 0;
+        }
+
+        accelerate(amount) {
+          this.speed += amount;
+        }
+
+        brake(amount) {
+          if (this.speed > 0) {
+            this.speed = this.speed - amount;
+            if (this.speed < 0) {
+              this.speed = 0;
+            }
+          }
+          return this.speed;
+        }
+
+        getAge(currentYear) {
+          let age = currentYear - this.year;
+          return age;
+        }
+
+        getDetails() {
+          return `Brand: ${this.brand}, Model: ${this.model}, Year: ${this.year}`;
+        }
+      }
+
+      // JUDGE CODE //
+
+      const car = new Car('Toyota', 'Corolla', 2015);
+      console.log(car.getDetails()); // Brand: Toyota, Model: Corolla, Year: 2015
+      car.accelerate(20);
+      console.log(car.speed); // 20
+      car.brake(5);
+      console.log(car.speed); // 15
+      console.log(car.getAge(2025)); // 10
+      car.brake(20);
+      console.log(car.speed); // 0
+    </script>
+  </body>
+</html>

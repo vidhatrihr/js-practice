@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Array Operations</h1>
+    <p id="min_max"></p>
+    <script>
+      function min_max(array) {
+        const minValue = Math.min(...array);
+        const maxValue = Math.max(...array);
+        return { minValue, maxValue };
+      }
+      const result = min_max([9, 30, 48, 2, 49, 102, 48]);
+
+      document.querySelector(
+        '#min_max'
+      ).innerHTML = `Minimum value: ${result.minValue}, Maximum value: ${result.maxValue}`;
+    </script>
+
+    <h3>Remove Duplicates</h3>
+    <p id="set"></p>
+
+    <script>
+      function remove_duplicate(array) {
+        return [...new Set(array)];
+      }
+
+      const array1 = ['vidu', 'paru', 'vidu', 'vishnu', 'rahul', 'rahul', 'vaishu', 'vaishu'];
+      document.querySelector(
+        '#set'
+      ).innerHTML = `Duplicate names removed from array [${remove_duplicate(array1).join(', ')}]`;
+    </script>
+
+    <p id="display"></p>
+    <script>
+      function remove_duplicate(array) {
+        const result = [];
+        for (const item of array) {
+          if (!result.includes(item));
+          result.push(item);
+        }
+        return result;
+      }
+      const array2 = [22, 32, 43, 44, 22, 33, 23, 32, 23, 44, 1, 4, 21, 42, 44, 20];
+      document.querySelector(
+        '#display'
+      ).innerHTML = `Duplicates removed from this array ${remove_duplicate(array2)}`;
+    </script>
+
+    <!-- <script>
+      function min_max(array) {
+        const minValue = Math.min(array);
+        const maxValue = Math.max(array);
+        return minValue, maxValue;
+      }
+
+      document.querySelector('#min_max').innerHTML = min_max([9, 30, 48, 2, 49, 102, 48]);
+    </script> -->
+  </body>
+</html>

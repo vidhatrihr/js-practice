@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 id="demo" style="color: firebrick"></h3>
+    <script>
+      var word = 'VIDHATRI';
+      function reverse_string(word) {
+        var new_word = word.split('').reverse().join('');
+        return new_word;
+      }
+      document.querySelector('#demo').innerHTML = word + ' : ' + reverse_string(word);
+    </script>
+
+    <h3 id="count"></h3>
+    <script>
+      var vowels = ['a', 'e', 'i', 'o', 'u'];
+      var word = 'vidhatri';
+      var count = 0;
+      function count_vowels(word) {
+        count = 0;
+        for (var char of word.toLowerCase()) {
+          if (vowels.includes(char)) {
+            count += 1;
+          }
+        }
+        return count;
+      }
+
+      document.querySelector('#count').innerHTML =
+        'Number of vowels in the word ' + word + ' is ' + count_vowels(word);
+    </script>
+
+    <!-- <div id="vowel"></div>
+    <script>
+      function count_vowels(word) {
+        const matches = word.match(/[aeiou]/gi);
+        return matches ? matches.length : 0;
+      }
+      const word = 'Parvathi';
+      document.querySelector(
+        '#vowel'
+      ).innerHTML = `Number of vowels in the word ${word} is ${count_vowels(word)}`;
+    </script> -->
+  </body>
+</html>

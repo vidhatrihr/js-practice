@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var word = 'maam';
+      var word_reverse = word.split('').reverse().join('');
+      var is_pal = word == word_reverse;
+      console.log(is_pal);
+    </script>
+
+    <!-- <script>
+      var word = 'maam';
+      var mid = parseInt(word.length / 2);
+      var left = word.slice(0, mid);
+      if (word.length % 2 == 0) {
+        var right = word.slice(mid, word.length);
+      } else {
+        var right = word.slice(mid + 1, word.length);
+      }
+      var right_reverse = right.split('').reverse().join('');
+      var is_pal = left == right_reverse;
+      console.log(is_pal);
+    </script> -->
+
+    <!-- <script>
+      var word = 'maam';
+      is_pal = true;
+      while (word.length != 0) {
+        if (word[0] == word[word.length - 1]) {
+          word = word.slice(1, -1);
+        } else {
+          is_pal = false;
+          break;
+        }
+      }
+      console.log(is_pal);
+    </script> -->
+
+    <!-- <script>
+      var word = 'gadag';
+      var is_pal = true;
+      var i = 0;
+      var j = word.length - 1;
+
+      while (is_pal) {
+        if (i == j) {
+          break;
+        }
+        if (word[i] == word[j]) {
+          i += 1;
+          j -= 1;
+        } else {
+          is_pal = false;
+          break;
+        }
+      }
+      console.log(is_pal);
+    </script> -->
+
+    <!-- <script>
+      var word = 'madal';
+      var is_pal = true;
+
+      for (i = 0; i < word.length; i += 1) {
+        j = word.length - 1 - i;
+        if (i == j) {
+          break;
+        }
+        if (word[i] != word[j]) {
+          is_pal = false;
+          break;
+        }
+      }
+      console.log(is_pal);
+    </script> -->
+
+    <!-- <script>
+      var word = 'madam';
+      var is_pal = true;
+      var i = 0;
+      var j = word.length - 1;
+      for (k = 0; k < word.length; k += 1) {
+        if (i == j) {
+          break;
+        }
+        if (word[i] == word[j]) {
+          i += 1;
+          j -= 1;
+        } else {
+          is_pal = false;
+          break;
+        }
+      }
+      console.log(is_pal)
+    </script> -->
+  </body>
+</html>

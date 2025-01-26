@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Check the date here:</h3>
+    <p id="demo"></p>
+    <p id="my_demo"></p>
+    <!-- <script>
+      const date = new Date();
+      const my_date = new Date('2004-06-31');
+      document.querySelector('#demo').innerHTML = date;
+      document.querySelector('#my_demo').innerHTML = my_date;
+    </script> -->
+
+    <script>
+      const date = new Date('december 30 2024');
+      const my_date = new Date('dec 30 2024');
+      const msec = new Date.parse('dec 30, 2015');
+      document.querySelector('#demo').innerHTML = date;
+      document.querySelector('#my_demo').innerHTML = my_date;
+    </script>
+  </body>
+</html>

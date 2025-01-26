@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        name: 'Rohit',
+        arrowFunction: null,
+        normalFunction: function () {
+          this.arrowFunction = () => {
+            console.log(this.name);
+          };
+        },
+      };
+      console.log(obj.arrowFunction);
+      obj.normalFunction();
+      console.log(obj.arrowFunction);
+      obj.arrowFunction();
+    </script>
+
+    <!-- <script>
+      let obj = {
+        name: 'rohit',
+        changeName: name => {
+          this.name = name;
+        },
+      };
+      obj.changeName('Mohit');
+      console.log(obj.name);
+    </script> -->
+
+    <!-- <script>
+      let obj = {
+        name: 'rohit',
+        changeName: function (name) {
+          this.name = name;
+        },
+      };
+      obj.changeName('Mohit');
+      console.log(obj.name);
+    </script> -->
+
+    <!-- <script>
+      const obj = { name: 'vidu' };
+      obj.name = 'rahul';
+      console.log(obj.name);
+    </script> -->
+  </body>
+</html>

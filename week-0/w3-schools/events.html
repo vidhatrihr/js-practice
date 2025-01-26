@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Display me the present date and time</h1>
+    <div onmouseover="this.style.backgroundColor='red'">Let me hover my mouse on you!</div>
+    <br />
+    <div onmousedown="this.style.color='red'">Let me click on you! I say it on mouse down!</div>
+    <br />
+    <button onclick="displayDate()">Display</button>
+    <script>
+      function displayDate() {
+        // document.getElementById('demo').innerHTML = Date();
+        document.querySelector('#demo').innerHTML = Date();
+      }
+    </script>
+    <p id="demo"></p>
+  </body>
+</html>

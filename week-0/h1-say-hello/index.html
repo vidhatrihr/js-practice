@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: cursive;
+        background-color: lightblue;
+        color: crimson;
+      }
+
+      .normal {
+        color: yellow;
+      }
+
+      .vip {
+        background-color: lightgoldenrodyellow;
+      }
+
+      .special {
+        background-color: lightgreen;
+      }
+
+      .special.vip {
+        text-decoration: line-through;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello rahul</h1>
+    <h1 class="normal">Normal H1</h1>
+    <h1 class="special">special H1</h1>
+    <h1 class="vip">vip H1</h1>
+    <h1 class="vip special">vip special H1</h1>
+    <button onclick="sayHello()">Click here</button>
+    <script>
+      var name = 'muskan';
+      var h1 = document.querySelector('.normal');
+      console.log(h1);
+
+      function sayHello() {
+        console.log('button was pressed.');
+        console.log('Hello ' + name);
+        h1.innerText = 'Hello muskan , welcome to js';
+      }
+    </script>
+  </body>
+</html>
