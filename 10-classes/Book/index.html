@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book</title>
+  </head>
+  <body>
+    <script>
+      class Book {
+        constructor(title, author, pages) {
+          this.title = title;
+          this.author = author;
+          this.pages = pages;
+          this.currentPage = 0;
+        }
+
+        read(pages) {
+          this.currentPage += pages;
+          if (this.currentPage > this.pages) {
+            this.currentPage = this.pages;
+          }
+        }
+
+        restart() {
+          this.currentPage = 0;
+        }
+
+        getProgress() {
+          let percentage = this.currentPage / this.pages;
+          percentage = percentage.toFixed(2);
+          percentage = percentage * 100;
+          return `Progress: ${percentage}% read`;
+        }
+
+        getDetails() {
+          return `Title: ${this.title}, Author: ${this.author}`;
+        }
+      }
+
+      // JUDGE CODE //
+
+      // const book = new Book('1984', 'George Orwell', 328);
+      // console.log(book.getDetails()); // Title: 1984, Author: George Orwell
+      // book.read(50);
+      // console.log(book.currentPage); // 50
+      // book.read(300);
+      // console.log(book.currentPage); // 328
+      // console.log(book.getProgress()); // Progress: 100% read
+      // book.restart();
+      // console.log(book.currentPage); // 0
+
+      // ASSERTS //
+
+      const book = new Book('1984', 'George Orwell', 328);
+
+      console.assert(book.title === '1984', 'Title should be 1984');
+      console.assert(book.author === 'George Orwell', 'Author should be George Orwell');
+      console.assert(book.pages === 328, 'Total pages should be 328');
+      console.assert(book.currentPage === 0, 'Initial current page should be 0');
+
+      book.read(50);
+      console.assert(book.currentPage === 50, 'Current page should be 50 after reading 50 pages');
+
+      book.read(300);
+      console.assert(book.currentPage === 328, 'Current page should not exceed total pages');
+
+      console.assert(book.getProgress() === 'Progress: 100% read', 'Progress should be 100%');
+
+      book.restart();
+      console.assert(book.currentPage === 0, 'Current page should reset to 0 after restart');
+
+      console.assert(
+        book.getDetails() === 'Title: 1984, Author: George Orwell',
+        'Details string should match format'
+      );
+
+      console.log('All Book tests passed ✅');
+    </script>
+  </body>
+</html>

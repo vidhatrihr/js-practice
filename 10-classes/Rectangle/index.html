@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rectangle</title>
+  </head>
+  <body>
+    <script>
+      class Rectangle {
+        constructor(width, height) {
+          this.width = width;
+          this.height = height;
+        }
+
+        getArea() {
+          let area = this.width * this.height;
+          return area;
+        }
+
+        getPerimeter() {
+          let perimeter = 2 * (this.width + this.height);
+          return perimeter;
+        }
+
+        resize(newWidth, newHeight) {
+          this.width = newWidth;
+          this.height = newHeight;
+        }
+
+        isSquare() {
+          if (this.width == this.height) {
+            return true;
+          }
+        }
+      }
+
+      // JUDGE CODE //
+
+      // const rect = new Rectangle(10, 20);
+      // console.log(rect.getArea()); // 200
+      // console.log(rect.getPerimeter()); // 60
+      // rect.resize(15, 15);
+      // console.log(rect.isSquare()); // true
+      // console.log(rect.getArea()); // 225
+
+      // ASSERT //
+
+      const rect = new Rectangle(10, 20);
+
+      console.assert(rect.width === 10, 'Width should be 10');
+      console.assert(rect.height === 20, 'Height should be 20');
+
+      console.assert(rect.getArea() === 200, 'Area should be 200');
+      console.assert(rect.getPerimeter() === 60, 'Perimeter should be 60');
+
+      rect.resize(15, 15);
+      console.assert(
+        rect.width === 15 && rect.height === 15,
+        'Width and height should update to 15'
+      );
+
+      console.assert(rect.isSquare() === true, 'Rectangle should be a square after resizing');
+
+      console.log('All Rectangle tests passed ✅');
+    </script>
+  </body>
+</html>

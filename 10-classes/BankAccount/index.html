@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BankAccount</title>
+  </head>
+  <body>
+    <script>
+      class BankAccount {
+        constructor(accountNumber) {
+          this.accountNumber = accountNumber;
+          this.balance = 0;
+        }
+
+        deposit(amount) {
+          this.balance += amount;
+        }
+
+        withdraw(amount) {
+          if (amount <= this.balance) {
+            this.balance -= amount;
+          }
+        }
+
+        getBalance() {
+          return this.balance;
+        }
+
+        transfer(amount, anotherAccount) {
+          if (amount <= this.balance) {
+            this.balance -= amount;
+            anotherAccount.deposit(amount);
+          }
+        }
+      }
+
+      // JUDGE CODE //
+
+      // const acc1 = new BankAccount('12345');
+      // const acc2 = new BankAccount('67890');
+      // acc1.deposit(100);
+      // console.log(acc1.getBalance()); // 100
+      // acc1.withdraw(50);
+      // console.log(acc1.getBalance()); // 50
+      // acc1.transfer(30, acc2);
+      // console.log(acc1.getBalance()); // 20
+      // console.log(acc2.getBalance()); // 30
+
+      // ASSERT //
+
+      const acc1 = new BankAccount('12345');
+      const acc2 = new BankAccount('67890');
+
+      console.assert(acc1.accountNumber === '12345', 'Account number should be 12345');
+      console.assert(acc1.balance === 0, 'Initial balance should be 0');
+
+      acc1.deposit(100);
+      console.assert(acc1.balance === 100, 'Balance should be 100 after deposit');
+
+      acc1.withdraw(50);
+      console.assert(acc1.balance === 50, 'Balance should be 50 after withdrawal');
+
+      acc1.withdraw(60);
+      console.assert(acc1.balance === 50, 'Balance should remain 50 if withdrawal exceeds balance');
+
+      acc1.transfer(30, acc2);
+      console.assert(acc1.balance === 20, 'Balance should be 20 after transfer');
+      console.assert(acc2.balance === 30, 'Balance of acc2 should be 30 after receiving transfer');
+
+      console.log('All BankAccount tests passed ✅');
+    </script>
+  </body>
+</html>

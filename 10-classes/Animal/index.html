@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animal</title>
+  </head>
+  <body>
+    <script>
+      class Animal {
+        constructor(name, species, sound) {
+          this.name = name;
+          this.species = species;
+          this.sound = sound;
+        }
+
+        makeSound() {
+          return this.sound;
+        }
+
+        getDetails() {
+          return `Name: ${this.name}, Species: ${this.species}`;
+        }
+
+        rename(newName) {
+          this.name = newName;
+        }
+
+        describe() {
+          console.log(`The ${this.species} ${this.name} says ${this.sound}`);
+        }
+      }
+
+      // JUDGE CODE //
+
+      // const animal = new Animal('Leo', 'Lion', 'Roar');
+      // console.log(animal.getDetails()); // Name: Leo, Species: Lion
+      // console.log(animal.makeSound()); // Roar
+      // animal.rename('Max');
+      // console.log(animal.name); // Max
+      // animal.describe(); // The Lion Max says Roar
+
+      // ASSERT //
+      const animal = new Animal('Leo', 'Lion', 'Roar');
+
+      console.assert(animal.name === 'Leo', 'Name should be Leo');
+      console.assert(animal.species === 'Lion', 'Species should be Lion');
+      console.assert(animal.sound === 'Roar', 'Sound should be Roar');
+
+      console.assert(animal.makeSound() === 'Roar', 'makeSound should return Roar');
+
+      console.assert(
+        animal.getDetails() === 'Name: Leo, Species: Lion',
+        'Details string should match format'
+      );
+
+      animal.rename('Max');
+      console.assert(animal.name === 'Max', 'Name should update to Max');
+
+      console.log('All Animal tests passed ✅');
+    </script>
+  </body>
+</html>

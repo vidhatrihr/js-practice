@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User</title>
+  </head>
+  <body>
+    <script>
+      class User {
+        constructor(username, email, age) {
+          this.username = username;
+          this.email = email;
+          this.age = age;
+          this.isActive = false;
+        }
+
+        login() {
+          this.isActive = true;
+        }
+
+        logout() {
+          this.isActive = false;
+        }
+
+        updateEmail(newEmail) {
+          this.email = newEmail;
+        }
+
+        getDetails() {
+          return `User: ${this.username}, Email: ${this.email}, Age: ${this.age}`;
+        }
+      }
+
+      // JUDGE CODE //
+
+      // const user = new User('john_doe', 'john@example.com', 25);
+      // console.log(user.getDetails()); // User: john_doe, Email: john@example.com, Age: 25
+      // user.login();
+      // console.log(user.isActive); // true
+      // user.logout();
+      // console.log(user.isActive); // false
+      // user.updateEmail('john.doe@gmail.com');
+      // console.log(user.email); // john.doe@gmail.com
+
+      // ASSERTS //
+      const user = new User('john_doe', 'john@example.com', 25);
+
+      console.assert(user.username === 'john_doe', 'Username should be john_doe');
+      console.assert(user.email === 'john@example.com', 'Email should be john@example.com');
+      console.assert(user.age === 25, 'Age should be 25');
+      console.assert(user.isActive === false, 'Initial active status should be false');
+
+      user.login();
+      console.assert(user.isActive === true, 'Active status should be true after login');
+
+      user.logout();
+      console.assert(user.isActive === false, 'Active status should be false after logout');
+
+      user.updateEmail('john.doe@gmail.com');
+      console.assert(
+        user.email === 'john.doe@gmail.com',
+        'Email should update to john.doe@gmail.com'
+      );
+
+      console.assert(
+        user.getDetails() === 'User: john_doe, Email: john.doe@gmail.com, Age: 25',
+        'Details string should match format'
+      );
+
+      console.log('All User tests passed ✅');
+    </script>
+  </body>
+</html>
