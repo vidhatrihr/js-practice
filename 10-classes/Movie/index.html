@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie</title>
+  </head>
+  <body>
+    <script>
+      class Movie {
+        constructor(title, director, releaseYear) {
+          this.title = title;
+          this.director = director;
+          this.releaseYear = releaseYear;
+          this.ratings = [];
+        }
+
+        addRating(rating) {
+          this.ratings.push(rating);
+        }
+
+        getAverageRating() {
+          if (this.ratings.length > 0) {
+            let sum = 0;
+            sum = this.ratings.reduce((total, num) => total + num, 0);
+            let avgRating = sum / this.ratings.length;
+            return avgRating;
+          } else {
+            return 'No ratings yet';
+          }
+        }
+
+        getDetails() {
+          return `Title: ${this.title}, Directed by: ${this.director}`;
+        }
+
+        isClassic(currentYear) {
+          if (currentYear - this.releaseYear > 25) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
+
+      // JUDGE CODE //
+
+      // const movie = new Movie('Inception', 'Christopher Nolan', 2010);
+      // console.log(movie.getDetails()); // Title: Inception, Directed by: Christopher Nolan
+      // movie.addRating(9);
+      // movie.addRating(8);
+      // console.log(movie.getAverageRating()); // 8.5
+      // console.log(movie.isClassic(2025)); // False
+      // movie.addRating(10);
+      // console.log(movie.ratings); // [9, 8, 10]
+
+      // ASSERT //
+
+      const movie = new Movie('Inception', 'Christopher Nolan', 2010);
+
+      console.assert(movie.title === 'Inception', 'Title should be Inception');
+      console.assert(
+        movie.director === 'Christopher Nolan',
+        'Director should be Christopher Nolan'
+      );
+      console.assert(movie.releaseYear === 2010, 'Release year should be 2010');
+      console.assert(movie.ratings.length === 0, 'Ratings should initially be empty');
+
+      movie.addRating(9);
+      movie.addRating(8);
+      console.assert(movie.ratings.length === 2, 'Ratings should have 2 entries');
+      console.assert(movie.getAverageRating() === 8.5, 'Average rating should be 8.5');
+
+      console.assert(
+        movie.getDetails() === 'Title: Inception, Directed by: Christopher Nolan',
+        'Details string should match format'
+      );
+
+      console.assert(movie.isClassic(2025) === false, 'Movie should not be a classic in 2025');
+
+      console.log('All Movie tests passed ✅');
+    </script>
+  </body>
+</html>

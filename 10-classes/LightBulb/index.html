@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LightBulb</title>
+  </head>
+  <body>
+    <script>
+      class LightBulb {
+        constructor(wattage) {
+          this.wattage = wattage;
+          this.status = 'off';
+        }
+        turnOn() {
+          this.status = 'on';
+        }
+
+        turnOff() {
+          this.status = 'off';
+        }
+
+        isOn() {
+          if (this.status == 'on') {
+            return true;
+          } else {
+            return false;
+          }
+        }
+
+        getDetails() {
+          return `Wattage: ${this.wattage}W, Status: ${this.status}`;
+        }
+      }
+
+      // JUDGE CODE //
+
+      // const bulb = new LightBulb(60);
+      // console.log(bulb.getDetails()); // Wattage: 60W, Status: off
+      // bulb.turnOn();
+      // console.log(bulb.isOn()); // true
+      // console.log(bulb.getDetails()); // Wattage: 60W, Status: on
+      // bulb.turnOff();
+      // console.log(bulb.isOn()); // false
+
+      // ASSERT //
+
+      const bulb = new LightBulb(60);
+
+      console.assert(bulb.wattage === 60, 'Wattage should be 60');
+      console.assert(bulb.status === 'off', 'Initial status should be off');
+
+      bulb.turnOn();
+      console.assert(bulb.status === 'on', 'Status should be on after turning on');
+      console.assert(bulb.isOn() === true, 'isOn should return true when on');
+
+      bulb.turnOff();
+      console.assert(bulb.status === 'off', 'Status should be off after turning off');
+      console.assert(bulb.isOn() === false, 'isOn should return false when off');
+
+      console.assert(
+        bulb.getDetails() === 'Wattage: 60W, Status: off',
+        'Details string should match format'
+      );
+
+      console.log('All LightBulb tests passed ✅');
+    </script>
+  </body>
+</html>

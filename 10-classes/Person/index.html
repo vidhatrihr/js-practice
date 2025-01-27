@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Person</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(firstName, lastName, age) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.age = age;
+        }
+
+        getFullName() {
+          return `Full Name: ${this.firstName} ${this.lastName}`;
+        }
+
+        isAdult() {
+          if (this.age >= 18) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+
+        celebrateBirthday() {
+          this.age += 1;
+        }
+
+        greet() {
+          return `Hello, I'm ${this.firstName} ${this.lastName}.`;
+        }
+      }
+
+      // JUDGE CODE //
+
+      // const person = new Person('John', 'Doe', 17);
+      // console.log(person.getFullName()); // Full Name: John Doe
+      // console.log(person.isAdult()); // false
+      // person.celebrateBirthday();
+      // console.log(person.age); // 18
+      // console.log(person.greet()); // Hello, I’m John Doe.
+
+      // ASSERT //
+
+      const person = new Person('John', 'Doe', 17);
+
+      console.assert(person.firstName === 'John', 'First name should be John');
+      console.assert(person.lastName === 'Doe', 'Last name should be Doe');
+      console.assert(person.age === 17, 'Age should be 17');
+
+      console.assert(
+        person.getFullName() === 'Full Name: John Doe',
+        'Full name should match format'
+      );
+
+      console.assert(person.isAdult() === false, 'Person should not be an adult');
+
+      person.celebrateBirthday();
+      console.assert(person.age === 18, 'Age should be 18 after celebrating birthday');
+
+      console.assert(person.greet() === "Hello, I'm John Doe.", 'Greeting should match format');
+
+      console.log('All Person tests passed ✅');
+    </script>
+  </body>
+</html>

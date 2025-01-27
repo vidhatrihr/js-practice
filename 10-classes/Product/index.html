@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product</title>
+  </head>
+  <body>
+    <script>
+      class Product {
+        constructor(name, price, stock) {
+          this.name = name;
+          this.price = price;
+          this.stock = stock;
+        }
+
+        purchase(quantity) {
+          if (quantity <= this.stock) {
+            this.stock -= quantity;
+          }
+        }
+
+        restock(quantity) {
+          this.stock += quantity;
+        }
+
+        getDetails() {
+          return `Product: ${this.Product}, Price: $${this.price}`;
+        }
+
+        isAvailable() {
+          if (this.stock > 0) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
+
+      // JUDGE CODE //
+      // const product = new Product('Laptop', 1200, 10);
+      // console.log(product.getDetails()); // Product: Laptop, Price: $1200
+      // console.log(product.isAvailable()); // true
+      // product.purchase(3);
+      // console.log(product.stock); // 7
+      // product.restock(5);
+      // console.log(product.stock); // 12
+      // product.purchase(15);
+      // console.log(product.stock); // 12
+
+      // ASSERT CODE //
+
+      const product = new Product('Laptop', 1200, 10);
+
+      console.assert(product.name === 'Laptop', 'Name should be Laptop');
+      console.assert(product.price === 1200, 'Price should be 1200');
+      console.assert(product.stock === 10, 'Stock should be 10');
+
+      console.assert(product.isAvailable() === true, 'Product should be available');
+
+      product.purchase(5);
+      console.assert(product.stock === 5, 'Stock should be 5 after purchasing 5 units');
+
+      product.restock(10);
+      console.assert(product.stock === 15, 'Stock should be 15 after restocking 10 units');
+
+      product.purchase(20);
+      console.assert(product.stock === 15, 'Stock should remain 15 if purchase exceeds stock');
+
+      console.log('All Product tests passed ✅');
+    </script>
+  </body>
+</html>
