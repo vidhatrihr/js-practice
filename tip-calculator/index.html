@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <h1>Tip Calculator</h1>
+
+      <div class="form">
+        <div>
+          <label>
+            Bill amount:
+            <input type="text" v-model="billAmount" />
+          </label>
+        </div>
+
+        <div>
+          <label>
+            Tip percentage:
+            <input type="text" v-model="tipPercentage" />
+          </label>
+        </div>
+
+        <div>
+          <button v-on:click="resetForm">Reset</button>
+        </div>
+      </div>
+
+      <div class="result">Total: {{ billAmount + billAmount*tipPercentage/100 }}</div>
+
+      <div class="message" v-if="billAmount > 0 && tipPercentage > 0">
+        <span v-if="tipPercentage <= 10">You are a good person!</span>
+        <span v-else-if="tipPercentage <=20">You are a very good person!</span>
+        <span v-else>You are the best person! 💖💖</span>
+      </div>
+    </main>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            billAmount: '',
+            tipPercentage: '',
+          };
+        },
+        methods: {
+          resetForm() {
+            this.billAmount = '';
+            this.tipPercentage = '';
+          },
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>

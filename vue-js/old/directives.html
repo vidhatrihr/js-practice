@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My first Vue js page</title>
+  </head>
+  <style>
+    div {
+      margin: 10px;
+      padding: 10px;
+      display: inline-block;
+      border: 2px solid black;
+    }
+    .pinkBG {
+      background-color: lightpink;
+      border: 3px solid brown;
+    }
+  </style>
+  <body>
+    <div id="app">
+      <div v-bind:class="vueClass" :style="{fontSize: size + 'px'}">
+        This is pinkBG class with v-bind
+      </div>
+      <p v-if="returnsBool">Boolean value returned is true</p>
+      <p v-else>Boolean value returned is false</p>
+      <div v-show="showDiv">This tag will be hidden if true</div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            size: 28,
+            vueClass: 'pinkBG',
+            returnsBool: true,
+            showDiv: false,
+          };
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>

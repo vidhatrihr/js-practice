@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <main id="app">
+      <p>I want to say: {{message}}, your salary is {{salary}}</p>
+      <p>Here is a random number: {{Math.random()}}</p>
+    </main>
+
+    <script>
+      const config = {
+        data() {
+          return {
+            message: 'Hello rahul',
+            salary: 200000,
+          };
+        },
+      };
+      const app = Vue.createApp(config);
+      app.mount('#app');
+    </script>
+  </body>
+</html>

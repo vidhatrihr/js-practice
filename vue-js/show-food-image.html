@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      img {
+        width: 400px;
+        aspect-ratio: 1;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="app">
+      <ul>
+        <li v-for="food in manyFoods">
+          <button v-on:click="imgUrl = food.url">{{food.name}}</button>
+        </li>
+      </ul>
+      <img v-bind:src="imgUrl" />
+    </main>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            imgUrl: './220px-Ras-Malai.jpg',
+            manyFoods: [
+              { name: 'malai', url: './220px-Ras-Malai.jpg' },
+              { name: 'curry', url: './cucumber-poriyal-recipe.jpg' },
+              { name: 'puri', url: './puri.jpg' },
+              { name: 'holige', url: './images.jpg' },
+              { name: 'aloo namkeen', url: './WhatsApp Image 2025-02-12 at 21.21.00.jpeg' },
+            ],
+          };
+        },
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>

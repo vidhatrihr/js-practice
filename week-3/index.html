@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script>
+      let vidu = {
+        name: 'vidu',
+        place: 'hbh',
+        age: 20,
+      };
+      let rahul = {
+        name: 'rahul',
+        place: 'pryj',
+        age: 20,
+      };
+
+      console.log(vidu);
+      console.log(rahul);
+    </script> -->
+
+    <script>
+      class Student {
+        constructor(name, place, age) {
+          this.name = name;
+          this.place = place;
+          this.age = age;
+        }
+        changeName(name) {
+          this.name = name;
+        }
+
+        makeFriend(student) {
+          console.log(`${this.name} is friend with ${student.name}`);
+        }
+      }
+
+      {
+        let vidu = new Student('vidu', 'hbh', 20);
+        let rahul = new Student('rahul', 'pryj', 22);
+        vidu.changeName('vishnu');
+        vidu.makeFriend(rahul);
+        console.log(vidu);
+        console.log(rahul);
+      }
+    </script>
+  </body>
+</html>
