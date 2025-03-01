@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2.7.16/dist/vue.js"></script>
+    <style>
+      img {
+        margin: 1rem;
+        width: 100px;
+        height: 100px;
+      }
+      .cool-shadow {
+        box-shadow: -2px 0 0.2px 0.5px;
+      }
+
+      img.selected {
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="cool-shadow">I am h1 with cool-shadow</h1>
+      <div id="container">
+        <img
+          :class="[ {selected: img.isSelected}]"
+          @click="select(index)"
+          v-for="(img, index) in images"
+          :src="img.url"
+          :alt="img.name"
+        />
+      </div>
+    </div>
+
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          images: [
+            {
+              name: 'burrito',
+              url: 'https://www.w3schools.com/vue/img_burrito.svg',
+              isSelected: false,
+            },
+            {
+              name: 'salad',
+              url: 'https://www.w3schools.com/vue/img_salad.svg',
+              isSelected: false,
+            },
+            { name: 'cake', url: 'https://www.w3schools.com/vue/img_cake.svg', isSelected: false },
+            { name: 'soup', url: 'https://www.w3schools.com/vue/img_soup.svg', isSelected: false },
+            { name: 'fish', url: 'https://www.w3schools.com/vue/img_fish.svg', isSelected: false },
+            {
+              name: 'pizza',
+              url: 'https://www.w3schools.com/vue/img_pizza.svg',
+              isSelected: false,
+            },
+            { name: 'rice', url: 'https://www.w3schools.com/vue/img_rice.svg', isSelected: false },
+          ],
+        },
+        methods: {
+          select(index) {
+            this.images[index].isSelected = !this.images[index].isSelected;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

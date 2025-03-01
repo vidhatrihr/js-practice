@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2.7.16/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="dark" v-bind:style="darkStyle">{{message}}</p>
+      <p v-else>{{message}}</p>
+      <button v-on:click="toggleTheme">Change theme</button>
+      <button @click="changeDarkColor">Change dark color</button>
+      <p>{{`${fname} ${lname}`}}</p>
+      <p>{{ fullName }}</p>
+    </div>
+    <script>
+      let app = new Vue({
+        el: '#app',
+        data: {
+          fname: 'vidu',
+          lname: 'hr',
+          message: 'Hello IITM',
+          dark: true,
+          darkStyle: {
+            color: 'white',
+            backgroundColor: 'black',
+          },
+        },
+        methods: {
+          toggleTheme() {
+            this.dark = !this.dark;
+          },
+          changeDarkColor() {
+            this.darkStyle.color = 'yellow';
+          },
+        },
+        computed: {
+          fullName() {
+            return `${this.fname} ${this.lname}`;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

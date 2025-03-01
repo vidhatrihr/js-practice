@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2.7.16/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <cool-message>welcome inside cool-message</cool-message>
+      <cool-message></cool-message>
+      <cool-message></cool-message>
+      <cool-message></cool-message>
+    </div>
+    <script>
+      const coolMessage = {
+        template: `
+                <div style='color: crimson'>
+                  <p>This is new component {{salary}}</p>
+                  <p>write your input here</p>
+                  <input type="text" />
+                </div>`,
+        data() {
+          return {
+            salary: 10000,
+          };
+        },
+      };
+
+      let app = new Vue({
+        el: '#app',
+        components: {
+          coolMessage,
+        },
+      });
+    </script>
+  </body>
+</html>

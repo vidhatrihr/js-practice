@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2.7.16/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <cool-message
+        v-for="student of students"
+        :name="student.name"
+        :salary="student.salary"
+      ></cool-message>
+    </div>
+    <script>
+      const coolMessage = {
+        template: '<p>This is template {{name}} and {{salary}}</p>',
+        props: ['name', 'salary'],
+      };
+
+      let app = new Vue({
+        el: '#app',
+        data: {
+          students: [
+            { name: 'vidu', salary: 2000 },
+            { name: 'rahul', salary: 2000 },
+            { name: 'vishnu', salary: 2000 },
+          ],
+        },
+        components: {
+          coolMessage,
+        },
+      });
+    </script>
+  </body>
+</html>

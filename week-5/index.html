@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // function launch(callback) {
+      //   console.log('inside launch()');
+
+      //   setTimeout(() => {
+      //     console.log('launch successful');
+      //     callback();
+      //   }, 1000);
+
+      //   console.log('end of launch()');
+      // }
+
+      // function messagePresident() {
+      //   console.log('Mission done');
+      // }
+
+      // launch(messagePresident);
+
+      function submit(callback) {
+        console.log('inside submit()');
+
+        setTimeout(() => {
+          console.log('Submitted Successfully');
+          callback();
+        }, 2000);
+
+        console.log('end of submit()');
+      }
+
+      function payment(callback) {
+        console.log('inside payment()');
+
+        setTimeout(() => {
+          console.log('payment done');
+          callback();
+        }, 2000);
+
+        console.log('end of payment()');
+      }
+
+      function messagePapa() {
+        console.log('Hello papa form done');
+      }
+
+      console.log('going to submit');
+      submit(payment);
+
+      // console.log('going to payment');
+      // payment();
+
+      // let myCallback = function () {
+      //   console.log('Hello vidu');
+      // };
+
+      // let someCoolFn = myCallback;
+      // let someBadFn = someCoolFn;
+      // console.log(someBadFn);
+
+      // setInterval(myCallback, 1000);
+      // console.log('Hello rahul');
+    </script>
+  </body>
+</html>
