@@ -7,65 +7,155 @@
   </head>
   <body>
     <script>
-      // function launch(callback) {
-      //   console.log('inside launch()');
+      // function submit() {
+      //   return new Promise(resolve => {
+      //     setTimeout(() => {
+      //       console.log('Submitted Successfully');
+      //       resolve();
+      //     }, 1000);
+      //   });
+      // }
 
+      // function payment() {
+      //   console.log('payment done');
+      // }
+
+      // let promise = submit();
+      // promise.then(() => {
+      //   payment();
+      // });
+
+      // let promise = new Promise(resolve => {
       //   setTimeout(() => {
-      //     console.log('launch successful');
+      //     resolve('Hello rahul');
+      //   }, 1000);
+      // });
+
+      // promise.then(result => {
+      //   console.log(`Promise fulfilled ${result}`);
+      // });
+
+      // async function launch() {
+      //   console.log('inside launch');
+      //   return 'launch successful';
+      // }
+
+      // console.log(launch());
+
+      function submit() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log('form submitted');
+            resolve();
+          }, 1000);
+        });
+      }
+
+      function payment(money) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log(`payment of Rs.${money} done`);
+            console.log('going to resolve payment now');
+            resolve();
+          }, 500);
+        });
+      }
+
+      function sendMessage(username) {
+        console.log(`hello ${username}, your form received and payment done`);
+      }
+
+      async function applyForm() {
+        await submit();
+        await payment(100);
+        sendMessage('rahul');
+      }
+
+      applyForm().then(() => {
+        console.log('this is after apply form resolved');
+      });
+
+      console.log('apply form in progress');
+
+      // function submit(callback) {
+      //   setTimeout(() => {
+      //     console.log('form submitted');
       //     callback();
       //   }, 1000);
-
-      //   console.log('end of launch()');
       // }
 
-      // function messagePresident() {
-      //   console.log('Mission done');
+      // function payment(money, callback) {
+      //   console.log(`payment of Rs.${money} done`);
+      //   callback();
       // }
 
-      // launch(messagePresident);
+      // function sendMessage(username) {
+      //   console.log(`hello ${username}, your form received and payment done`);
+      // }
 
-      function submit(callback) {
-        console.log('inside submit()');
+      // submit(() => {
+      //   payment(100, () => {
+      //     sendMessage('Rahul');
+      //   });
+      // });
 
-        setTimeout(() => {
-          console.log('Submitted Successfully');
-          callback();
-        }, 2000);
+      // function submit(callback, callbackArgs) {
+      //   setTimeout(() => {
+      //     console.log('form submitted');
+      //     callback(...callbackArgs);
+      //   }, 1000);
+      // }
 
-        console.log('end of submit()');
-      }
+      // function payment(money, callback, callbackArgs) {
+      //   console.log(`payment of Rs.${money} done`);
+      //   callback(...callbackArgs);
+      // }
 
-      function payment(callback) {
-        console.log('inside payment()');
+      // function sendMessage(username) {
+      //   console.log(`hello ${username}, your form received and payment done`);
+      // }
 
-        setTimeout(() => {
-          console.log('payment done');
-          callback();
-        }, 2000);
+      // submit(payment, [100, sendMessage, ['Rahul']]);
 
-        console.log('end of payment()');
-      }
+      // function submit() {
+      //   return new Promise(resolve => {
+      //     setTimeout(() => {
+      //       console.log('Submitted Successfully');
+      //       resolve();
+      //     }, 1000);
+      //   });
+      // }
 
-      function messagePapa() {
-        console.log('Hello papa form done');
-      }
+      // function payment(money, app) {
+      //   return new Promise(resolve => {
+      //     setTimeout(() => {
+      //       console.log(`payment of Rs.${money}, using ${app} app`);
+      //       resolve();
+      //     }, 500);
+      //   });
+      // }
 
-      console.log('going to submit');
-      submit(payment);
+      // function verify(token) {
+      //   console.log(`Token ${token} verified Successfully`);
+      // }
 
-      // console.log('going to payment');
-      // payment();
+      // function accept(role) {
+      //   console.log(`Role ${role} accepted`);
+      // }
 
-      // let myCallback = function () {
-      //   console.log('Hello vidu');
-      // };
+      // console.log('going to submit');
 
-      // let someCoolFn = myCallback;
-      // let someBadFn = someCoolFn;
-      // console.log(someBadFn);
+      // submit().then(() => {
+      //   payment(100, 'paytm').then(() => {
+      //     verify('xyz');
+      //     accept('teacher');
+      //   });
+      // });
 
-      // setInterval(myCallback, 1000);
-      // console.log('Hello rahul');
+      // submit(); // 1000ms
+      // payment(100, 'paytm'); // 500ms
+      // verify('xyz');
+      // accept('teacher');
     </script>
   </body>
 </html>

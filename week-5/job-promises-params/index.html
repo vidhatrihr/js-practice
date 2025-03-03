@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function apply(name, age, role) {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            console.log(`apply: ${name} ${age} ${role}`);
+            resolve();
+          }, 1000);
+        });
+      }
+
+      function pay(amount, bank) {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            console.log(`Paid ${amount} via ${bank}`);
+            resolve();
+          }, 1000);
+        });
+      }
+
+      function verify(id) {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            console.log(`ID ${id} verified`);
+            resolve();
+          }, 1000);
+        });
+      }
+
+      async function main() {
+        await apply('vidu', 20, 'student');
+        await pay(1000, 'SBI');
+        await verify('abc');
+        console.log('all done');
+      }
+
+      main();
+    </script>
+  </body>
+</html>

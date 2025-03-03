@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // function launch(callback) {
+      //   console.log('inside launch()');
+
+      //   setTimeout(() => {
+      //     console.log('launch successful');
+      //     callback();
+      //   }, 1000);
+
+      //   console.log('end of launch()');
+      // }
+
+      // function messagePresident() {
+      //   console.log('Mission done');
+      // }
+
+      // launch(messagePresident);
+
+      //  callback hell below
+
+      function submit(callback) {
+        console.log('Submitted Successfully');
+        callback();
+      }
+
+      function payment(money, app, callback) {
+        console.log(`payment of Rs.${money}, using ${app} app`);
+        callback();
+      }
+
+      function verify(token, callback) {
+        console.log(`Token ${token} verified Successfully`);
+        callback();
+      }
+
+      function accept(role) {
+        console.log(`Role ${role} accepted`);
+      }
+
+      console.log('going to submit');
+      submit(() => {
+        payment(100, 'paytm', () => {
+          verify('xyz', () => {
+            accept('teacher');
+          });
+        });
+      });
+
+      // function submit(callback, callbackArgs) {
+      //   console.log('inside submit()');
+
+      //   setTimeout(() => {
+      //     console.log('Submitted Successfully');
+      //     callback(...callbackArgs);
+      //   }, 200);
+
+      //   console.log('end of submit()');
+      // }
+
+      // function payment(money, app, callback, callbackArgs) {
+      //   console.log('inside payment()');
+
+      //   setTimeout(() => {
+      //     console.log(`payment of Rs.${money}, using ${app} app`);
+      //     callback(...callbackArgs);
+      //   }, 200);
+
+      //   console.log('end of payment()');
+      // }
+
+      // function verify(token, callback, callbackArgs) {
+      //   console.log(`Token ${token} verified Successfully`);
+      //   callback(...callbackArgs);
+      // }
+
+      // function accept(role) {
+      //   console.log(`Role ${role} accepted`);
+      // }
+
+      // console.log('going to submit');
+      // submit(payment, [100, 'paytm', verify, ['tkxyz', accept, ['user']]]);
+
+      // console.log('going to payment');
+      // payment();
+
+      // let myCallback = function () {
+      //   console.log('Hello vidu');
+      // };
+
+      // let someCoolFn = myCallback;
+      // let someBadFn = someCoolFn;
+      // console.log(someBadFn);
+
+      // setInterval(myCallback, 1000);
+      // console.log('Hello rahul');
+    </script>
+  </body>
+</html>

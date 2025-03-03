@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function apply() {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            console.log('form applied');
+            resolve();
+          }, 1000);
+        });
+      }
+
+      function pay() {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            console.log('payment done');
+            resolve();
+          }, 500);
+        });
+      }
+
+      function verify() {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            console.log('verified');
+            resolve();
+          }, 300);
+        });
+      }
+      async function main() {
+        await apply();
+        await pay();
+        await verify();
+        console.log('finally all done');
+      }
+
+      main();
+    </script>
+  </body>
+</html>

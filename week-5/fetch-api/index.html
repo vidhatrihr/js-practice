@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      async function main() {
+        let response = await fetch('https://catfact.ninja/fact');
+        let data = await response.json();
+        console.log(data);
+      }
+
+      main();
+
+      // let promise = fetch('https://catfact.ninja/fact');
+      // promise
+      //   .then(response => {
+      //     return response.json();
+      //   })
+      //   .then(data => {
+      //     console.log(data, data.fact, data.length);
+      //   });
+
+      // function add(a, b) {
+      //   return new Promise(resolve => {
+      //     setTimeout(() => {
+      //       let ans = a + b;
+      //       resolve(ans);
+      //     }, 1000);
+      //   });
+      // }
+
+      // async function main() {
+      //   let promise = add(2, 4);
+      //   promise
+      //     .then(ans => {
+      //       console.log(ans);
+      //     })
+      //     .then(() => {
+      //       console.log('Numbers added');
+      //     });
+      // }
+
+      // async function main() {
+      //   let promise = add(6, 7);
+      //   let answer = await promise;
+      //   console.log(promise);
+      //   console.log(answer);
+      //   console.log('Numbers added');
+      // }
+
+      // main();
+    </script>
+  </body>
+</html>
