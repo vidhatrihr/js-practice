@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Todo</title>
+    <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script>
+    <style>
+      form {
+        width: fit-content;
+        margin: auto;
+        padding: 1rem;
+        border: 2px solid green;
+      }
+
+      form div {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="app">
+      <form v-on:submit.prevent="addTodo">
+        <label>
+          <div>
+            Todo text:
+            <input type="text" v-model="todo" />
+          </div>
+
+          <div>
+            <input type="submit" value="Add todo" />
+          </div>
+        </label>
+      </form>
+
+      <ul>
+        <li v-for="todo in todos">{{todo}}</li>
+      </ul>
+    </main>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            todos: ['eat food', 'cook food', 'sleep'],
+            todo: '',
+          };
+        },
+        methods: {
+          addTodo() {
+            this.todos.push(this.todo);
+          },
+        },
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flask Todo</title>
+
+    <style>
+      form {
+        width: fit-content;
+        margin: auto;
+        padding: 1rem;
+        border: 2px solid green;
+      }
+
+      form div {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <form action="/add-todo" method="post">
+        <label>
+          <div>
+            Todo text:
+            <input type="text" name="todo" />
+          </div>
+
+          <div>
+            <input type="submit" value="Add todo" />
+          </div>
+        </label>
+      </form>
+      <ul>
+        {% for todo in todos %}
+        <li>{{ todo }}</li>
+        {% endfor %}
+      </ul>
+    </main>
+  </body>
+</html>
