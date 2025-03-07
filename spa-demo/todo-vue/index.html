@@ -5,36 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue Todo</title>
     <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script>
+
     <style>
       form {
         width: fit-content;
         margin: auto;
         padding: 1rem;
-        border: 2px solid green;
+        border: 2px solid #333;
       }
 
       form div {
         margin-bottom: 10px;
+      }
+
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        cursor: pointer;
+      }
+
+      li a {
+        text-decoration: none;
+        margin: 0 0.5rem;
+      }
+
+      li.done > span {
+        text-decoration: line-through;
+      }
+
+      li.star {
+        color: red;
+        text-shadow: 1px 1px yellow;
       }
     </style>
   </head>
   <body>
     <main id="app">
       <form v-on:submit.prevent="addTodo">
-        <label>
-          <div>
-            Todo text:
-            <input type="text" v-model="todo" />
-          </div>
+        <div>
+          <label>
+            Todo:
+            <input type="text" v-model="todoText" />
+          </label>
+        </div>
 
-          <div>
-            <input type="submit" value="Add todo" />
-          </div>
-        </label>
+        <div>
+          <button>Add Todo</button>
+        </div>
       </form>
 
       <ul>
-        <li v-for="todo in todos">{{todo}}</li>
+        <li v-for="(todo, key) in todos" v-bind:class="[{done: todo.isDone}, {star: todo.isStar}]">
+          <span v-on:click="toggleDone(key)">{{ todo.text }}</span>
+          <a href="#" v-on:click="deleteTodo(key)">✗</a>
+          <a href="#" v-on:click="toggleStar(key)">
+            <span v-if="todo.isStar">★</span>
+            <span v-else>☆</span>
+          </a>
+        </li>
       </ul>
     </main>
 
@@ -42,17 +72,44 @@
       const app = Vue.createApp({
         data() {
           return {
-            todos: ['eat food', 'cook food', 'sleep'],
-            todo: '',
+            todoText: '',
+            nextTodoId: localStorage.getItem('nextTodoId') || 3,
+            todos: JSON.parse(localStorage.getItem('todos')) || {
+              0: { text: 'Sleep', isDone: false, isStar: false },
+              1: { text: 'Eat food', isDone: false, isStar: false },
+              2: { text: 'Drink water', isDone: false, isStar: false },
+            },
           };
         },
         methods: {
           addTodo() {
-            this.todos.push(this.todo);
+            // add new todo
+            this.todos[this.nextTodoId] = { text: this.todoText, isDone: false, isStar: false };
+            this.nextTodoId++;
+
+            // clear input
+            this.todoText = '';
+
+            this.saveTodos();
+          },
+          deleteTodo(key) {
+            delete this.todos[key];
+            this.saveTodos();
+          },
+          toggleDone(key) {
+            this.todos[key].isDone = !this.todos[key].isDone;
+            this.saveTodos();
+          },
+          toggleStar(key) {
+            this.todos[key].isStar = !this.todos[key].isStar;
+            this.saveTodos();
+          },
+          saveTodos() {
+            localStorage.setItem('todos', JSON.stringify(this.todos));
+            localStorage.setItem('nextTodoId', this.nextTodoId);
           },
         },
       });
-
       app.mount('#app');
     </script>
   </body>

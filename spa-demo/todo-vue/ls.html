@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local storage demo</title>
+    <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main id="app">
+      <input type="text" v-model="name" />
+      <h1 v-if='name != ""'>Hello {{ name }}</h1>
+      <h1 v-else>Hello Stranger</h1>
+    </main>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          let name = localStorage.getItem('name') || '';
+          return {
+            name: name,
+          };
+        },
+        watch: {
+          name() {
+            localStorage.setItem('name', this.name);
+          },
+        },
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>
