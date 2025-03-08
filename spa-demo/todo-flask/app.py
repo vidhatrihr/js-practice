@@ -8,7 +8,6 @@ todos = [
     'Walk on land',
     'Solve exercise 4.1',
     'Eat lunch'
-
 ]
 
 
