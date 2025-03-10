@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <main id="app">
+      <h1>Hello from sample Vue app</h1>
+      <p>My salary is {{salary}}</p>
+      <cool-banner>
+        <template #painting>
+          <img src="https://placecats.com/300/200" alt="cat pic" />
+          <p>I am inside painting slot</p>
+        </template>
+        <template #king>
+          <p>I am inside King slot</p>
+        </template>
+        <p>I am inside open/close tags of cool banner, in default slot</p>
+      </cool-banner>
+    </main>
+    <script>
+      let CoolBanner = {
+        template: `
+            <slot></slot>
+            
+            <div style="border: 1px solid red">
+              <p>I am a cool banner</p>
+
+              <slot name='painting'></slot>
+              <p>Above is the painting slot</p>
+
+              <slot name='king'></slot>
+              <p>Above is the king slot</p>
+            </div>
+        `,
+      };
+
+      const app = Vue.createApp({
+        data() {
+          return {
+            salary: 100,
+          };
+        },
+        components: {
+          'cool-banner': CoolBanner,
+        },
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>
