@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+  </head>
+  <body>
+    <main id="app">
+      <h1>This is slot demo</h1>
+      <child>
+        <template v-slot:header="{info}">
+          <p>Hello para {{info}}</p>
+        </template>
+      </child>
+    </main>
+
+    <script>
+      Vue.component('child', {
+        template: `
+        <div>
+          <slot name="header" :info="info"></slot>
+          <slot :info="info"></slot>
+        </div>
+        `,
+        data() {
+          return {
+            info: { title: 'hello' },
+          };
+        },
+      });
+
+      new Vue({
+        el: '#app',
+      });
+    </script>
+  </body>
+</html>

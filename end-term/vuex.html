@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://unpkg.com/vuex@3"></script>
+  </head>
+  <body>
+    <main id="app">
+      <h1>My salary is {{salary}}</h1>
+      <button @click="incrementSalary">Increment Salary</button>
+    </main>
+
+    <script>
+      const store = new Vuex.Store({
+        state: {
+          salary: 1000,
+        },
+        mutations: {
+          incrementSalary(state, payload = 1) {
+            state.salary += payload;
+          },
+        },
+        actions: {
+          async doSomething({ state, commit, dispatch }, payload = -1) {
+            await new Promise(resolve => {
+              setTimeout(() => {
+                resolve();
+              }, 2000);
+            });
+            commit('incrementSalary', payload);
+          },
+        },
+      });
+
+      new Vue({
+        el: '#app',
+        store,
+        computed: {
+          salary() {
+            return store.state.salary;
+          },
+        },
+        methods: {
+          incrementSalary() {
+            // store.commit('incrementSalary', 4);
+            store.dispatch('doSomething', 10);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

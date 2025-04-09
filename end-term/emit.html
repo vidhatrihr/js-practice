@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+  </head>
+  <body>
+    <main id="app">
+      <my-button @click="parentClick"> click me </my-button>
+    </main>
+
+    <script>
+      Vue.component('my-button', {
+        template: `
+            <button @click='handleClick'><slot></slot></button>    
+        `,
+        methods: {
+          handleClick() {
+            console.log('Handle');
+            this.$emit('click');
+          },
+        },
+      });
+
+      new Vue({
+        el: '#app',
+        methods: {
+          parentClick() {
+            console.log('Parent');
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

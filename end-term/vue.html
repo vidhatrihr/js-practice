@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2.7.16/dist/vue.js"></script>
+  </head>
+  <body>
+    <main id="app">
+      <h1>I am {{user.name}}, my salary is {{salary}}</h1>
+    </main>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          user: {
+            name: 'Abhi',
+            age: 30,
+          },
+          salary: 1000,
+        },
+        watch: {
+          user: {
+            handler(newVal, oldVal) {
+              console.log(`old value was`, oldVal.name);
+              console.log(`new value is`, newVal.name);
+            },
+            deep: true,
+          },
+          salary(newVal, oldVal) {
+            console.log(newVal, oldVal);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

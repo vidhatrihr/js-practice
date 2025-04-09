@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+  </head>
+  <body>
+    <main id="app">
+      <div>
+        <h1 v-if="result">if: Am I visible?</h1>
+        <h1 v-show="result">show: Am I visible?</h1>
+      </div>
+    </main>
+
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          result: false,
+        },
+      });
+    </script>
+  </body>
+</html>

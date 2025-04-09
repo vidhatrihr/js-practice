@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://unpkg.com/vue-router@3"></script>
+  </head>
+  <body>
+    <main id="app">
+      <nav>
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">About</router-link>
+        <router-link to="/user/15">User 15 Profile</router-link>
+        <router-link to="/user/18">User 18 Profile</router-link>
+      </nav>
+      <router-view></router-view>
+    </main>
+
+    <template id="home-template">
+      <div>
+        <h1>This is Home page</h1>
+        <div>Welcome to website</div>
+      </div>
+    </template>
+
+    <template id="about-template">
+      <div>
+        <h1>This is about page</h1>
+        <div>Welcome to website</div>
+      </div>
+    </template>
+
+    <template id="user-profile-template">
+      <div>
+        <h1>This is user profile page</h1>
+        <div>You are {{doomDoom}}</div>
+      </div>
+    </template>
+
+    <script>
+      const Home = {
+        template: document.getElementById('home-template').innerHTML,
+      };
+      const About = {
+        template: document.getElementById('about-template').innerHTML,
+      };
+      const UserProfile = {
+        template: document.getElementById('user-profile-template').innerHTML,
+        computed: {
+          doomDoom() {
+            return this.$route.params.id;
+          },
+        },
+      };
+
+      const routes = [
+        {
+          path: '/',
+          component: Home,
+        },
+        {
+          path: '/about',
+          component: About,
+        },
+        {
+          path: '/user/:id',
+          component: UserProfile,
+        },
+      ];
+
+      const router = new VueRouter({
+        routes,
+      });
+
+      const app = new Vue({
+        router,
+        el: '#app',
+      });
+    </script>
+  </body>
+</html>

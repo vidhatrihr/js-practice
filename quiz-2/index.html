@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue</title>
+    <!-- <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script> -->
+    <script src="https://unpkg.com/vue@2.7.16/dist/vue.js"></script>
+  </head>
+  <body>
+    <main id="app">
+      <h1>Vue app</h1>
+      <p>{{message}}</p>
+      <button @click="updateMessage">Change message</button>
+    </main>
+
+    <!-- <script>
+      async function myFunction() {
+        try {
+          const result1 = await Promise.resolve('Start');
+          console.log(result1);
+
+          const result2 = await new Promise((resolve, reject) => {
+            setTimeout(() => reject('Error'), 100);
+          });
+
+          console.log(result2);
+        } catch (error) {
+          console.log('Caught:', error);
+        }
+
+        return 'End';
+      }
+
+      myFunction().then(result => console.log(result));
+    </script> -->
+
+    <!-- <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            message: 'vidu',
+          };
+        },
+        methods: {
+          updateMessage() {
+            this.message = this.message === 'Hello' ? 'World' : 'Hello';
+            // world if Hello, if not  make Hello
+          },
+        },
+      });
+
+      app.mount('#app');
+    </script> -->
+  </body>
+</html>
